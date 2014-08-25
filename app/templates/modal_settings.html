@@ -1,0 +1,22 @@
+<div id="settingsModal" class="modal hide" data-backdrop="static">
+  <div class="modal-body">
+    <ul class="nav nav-tabs" id="">
+      <!-- can't use hrefs cuz it'll make the app go to genres section -->
+      <li class="active"><a href="" data-toggle="tab" ng-click="tabAbout()">About</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="about">
+        <div class="text-center" style="background-color:#000; padding:15px 0">
+          <img id="logo" src="../../img/logo.png">
+        </div>
+        <div class="text-center" style="margin:20px 0">
+          Version {{version}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="closeSettings()" class="btn" >Ok</button>
+  </div>
+</div>
+

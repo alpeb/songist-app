@@ -1,0 +1,35 @@
+#!/bin/sh
+
+rm -rdf target
+rm target.zip
+
+rsync -av . target --exclude target --exclude release
+
+rm target/css/bootstrap.css
+rm target/css/font-awesome.css
+rm target/css/jquery-ui-1.10.3.custom.css
+
+rm -rdf target/app/js/controllers
+rm -rdf target/app/js/directives
+rm -rdf target/app/js/filters
+rm -rdf target/app/js/services
+
+rm target/js/angular.js
+rm target/js/bootstrap.js
+rm target/js/jdataview.js
+rm target/js/bootstrap-slider.js
+rm target/js/jquery-ui-1.10.3.custom.js
+
+rm target/app/js/genres.js
+rm target/app/js/main.js
+
+rm -rdf target/test
+
+# piping into the same source file won't work for some reason, so I need an intermediary
+php -r 'echo preg_replace("/<!-- begin -->.*<!-- end -->/s", "", file_get_contents("app/templates/main.html"));' > eraseme1
+php -r 'echo preg_replace("#<script src=\"\.\./\.\./js/angular\.js\"></script>#", "<script src=\"../../js/angular.min.js\"></script>", file_get_contents("eraseme1"));' > target/app/templates/main.html
+rm eraseme1
+
+java -jar ~/java/closure-compiler/compiler.jar --language_in ECMASCRIPT5 --js js/jdataview.js js/bootstrap-slider.js app/js/genres.js app/js/main.js app/js/directives/whenScrolled.js app/js/directives/ngIf.js app/js/directives/player.js app/js/directives/modalError.js app/js/filters/encodeURIComponent.js app/js/controllers/HomeCtrl.js app/js/controllers/PlayerCtrl.js app/js/controllers/PlaylistFormCtrl.js app/js/controllers/GenresCtrl.js app/js/controllers/ArtistsCtrl.js app/js/controllers/AlbumsCtrl.js app/js/controllers/TracksCtrl.js app/js/controllers/QueueCtrl.js app/js/controllers/PlaylistsCtrl.js app/js/services/Db.js app/js/services/Genres.js app/js/services/Artists.js app/js/services/Albums.js app/js/services/Tracks.js app/js/services/Queue.js app/js/services/Playlists.js app/js/services/MediaGalleries.js --js_output_file target/app/js/all.min.js
+
+zip -r target.zip target

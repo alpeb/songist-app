@@ -1,0 +1,63 @@
+<table id="tracksTableHeaders" class="table table-condensed">
+  <thead>
+    <tr>
+      <th class="colPlaying"></th>
+      <th class="colTitle"><span>Title</span></th>
+      <th class="colArtist"><span>Artist</span></th>
+      <th class="colAlbum"><span>Album</span></th>
+      <th class="colGenre"><span>Genre</span></th>
+      <th class="colOps">
+        <a ng-click="enqueueAll(playlist.playlist)"><i class="icon-plus-sign"></i> all</a>
+      </th>
+    </tr>
+  </thead>
+</table>
+<table id="tracksTable" class="table table-condensed table-striped table-hover infiniteScroll hide" when-scrolled="loadMore()">
+  <tbody>
+    <tr ng-repeat="track in tracks">
+      <td class="colPlaying">
+        <span ng-switch on="track.path == currentTrack.track.path">
+          <i ng-switch-when="true" class="icon-volume-up"></i>
+        </span>
+        <span nf-if="p.p" class="playlistDraggable" data-path="{{track.path}}">::</span>
+      </td>
+      <td class="colTitle" ng-click="selectTrack(track)">{{track.title}}</td>
+      <td class="colArtist capitalize" ng-click="selectTrack(track)">{{track.artist}}</td>
+      <td class="colAlbum capitalize" ng-click="selectTrack(track)">{{track.album}}</td>
+      <td class="colGenre capitalize" ng-click="selectTrack(track)">{{track.genre}}</td>
+      <td class="colOps">
+        <a ng-click="enqueue(track)"><i class="icon-plus-sign"></i></a>
+        <a ng-click="removeFromPlaylist(track)"><i class="icon-minus-sign"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table id="cleanRow" class="table table-condensed">
+  <tbody>
+    <tr>
+      <td id="btnCleanQueue">
+        <div class="text-right">
+          <a ng-click="rename()" ng-controller="PlaylistFormCtrl">
+            Rename Playlist
+          </a>
+          <a ng-click="deletePlaylist()" style="margin-left:10px">
+            Delete Playlist
+          </a>
+          <a id="btnExportPlaylist" ng-click="exportPlaylist()" style="margin-left:10px">
+            Export Playlist
+          </a>
+          <a download id="downloadPlaylistLink" class="hide" target="_blank"></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="tracksSpinner" style="height:200px; padding-top:150px" class="text-center hide">
+  <i class="icon-spinner icon-spin icon-4x"></i>
+</div>
+<div id="tracksNotFound" class="text-center hide">
+  Drag-and-drop a track's <span class="playlistIcon">::</span> icon into a playlist to add it
+</div>
+

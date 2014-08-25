@@ -1,0 +1,11 @@
+<div class="infiniteScroll" when-scrolled="loadMore()">
+  <div class="thumb" ng-click="clickAlbum(album)" ng-repeat="album in albums">
+    <div ng-switch on="album.art">
+      <img ng-switch-when="null" src="../../img/album.png">
+      <img ng-switch-default ng-src="{{album.art}}">
+    </div>
+    <div class="thumb-name text-center">
+      <span class="capitalize">{{album.name}}</span>
+    </div>
+  </div>
+</div>

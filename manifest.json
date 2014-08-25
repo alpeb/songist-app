@@ -1,0 +1,21 @@
+{
+  "name": "Songist",
+  "description": "Music player for music stored in your Hard-Drive or USB storage. Works offline!",
+  "manifest_version": 2,
+  "version": "1.3.0",
+  "minimum_chrome_version": "29",
+  "permissions": [
+    {"mediaGalleries": ["read", "allAutoDetected"]},
+    "storage",
+    "http://songistplayer.com/",
+    "http://s3.amazonaws.com/",
+    "http://localhost:9000/"
+  ],
+  "offline_enabled": true,
+  "app": {
+    "background": {
+      "scripts": ["app/js/background.js"]
+    }
+  },
+  "icons": { "16": "songist-16.png", "128": "songist-128.png" }
+}

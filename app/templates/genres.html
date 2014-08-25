@@ -1,0 +1,10 @@
+<div class="infiniteScroll" when-scrolled="loadMore()">
+  <div class="thumb thumb-genres" ng-click="clickGenre(genre)" ng-repeat="genre in genres track by $index">
+    <div>
+      <img ng-src="{{genre.art}}">
+    </div>
+    <div class="thumb-name text-center" style="width:210px">
+      <span class="capitalize">{{genre.name}}</span>
+    </div>
+  </div>
+</div>

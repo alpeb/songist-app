@@ -1,0 +1,10 @@
+<div id="artists" class="infiniteScroll" when-scrolled="loadMore()">
+  <div class="thumb" ng-click="clickArtist(artist)" ng-repeat="artist in artists track by $index">
+    <div>
+      <img ng-src="{{artist.art}}">
+    </div>
+    <div class="thumb-name text-center">
+      <span class="capitalize">{{artist.name}}</span>
+    </div>
+  </div>
+</div>
