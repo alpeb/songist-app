@@ -1,6 +1,6 @@
 The Songist Music Player
 ========================
-[![Gitter chat](https://badges.gitter.im/alpeb/songist.png)](https://gitter.im/alpeb/songist)
+Have a question or wanna chat? hit me on Gitter: [![Gitter chat](https://badges.gitter.im/alpeb/songist.png)](https://gitter.im/alpeb/songist)
 
 Songist is a music player app for Chrome (it's a Chrome Packaged App) that works with music stored in your hard-drive or USB storage. It works offline.
 
