@@ -283,17 +283,4 @@ songist.controller('HomeCtrl', ['$scope', '$location', '$route', '$routeParams',
 
   console.log("View: Home");
 
-  var webview = document.getElementById('webview');
-  webview.addEventListener('loadstop', function() {
-    webview.contentWindow.postMessage({
-      command: 'handshake'
-    }, '*');
-  });
-  webview.addEventListener('newwindow', function(evt) {
-    // for example used by CPMoz by their in-house ad
-    //console.log("newwindow: ", evt);
-    var adLink = document.getElementById('adLink');
-    adLink.setAttribute('href', evt.targetUrl);
-    adLink.click();
-  });
 }]);
