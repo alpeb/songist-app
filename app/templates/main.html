@@ -59,9 +59,6 @@
         <li ng-class="{active: $route.current.activetab == 'queue'}">
           <a href="#/queue">Queue</a>
         </li>
-        <li class="ng-hide" id="adsWrapper" ng-show="online() && p.p != -1 && !p.p">
-          Ads
-          <webview id="webview" src="http://songistplayer.com/ad-webview?w=125&h=125" style="width:125px; height:125px"></webview>
       </ul>
       <ul id="playlistsTitle" class="nav nav-list">
         <li>
