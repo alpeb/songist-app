@@ -7,7 +7,7 @@
   "permissions": [
     {"mediaGalleries": ["read", "allAutoDetected"]},
     "storage",
-    "http://songistplayer.com/",
+    "http://pulptunes.com/",
     "http://s3.amazonaws.com/",
     "http://localhost:9000/"
   ],

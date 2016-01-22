@@ -102,7 +102,7 @@ songist.factory('Albums', ['Db', function(Db) {
 
         // don't wanna go into Angular's digest cycle, so not using $http
         $.get(
-          'http://songistplayer.com/api/art/album',
+          'http://pulptunes.com/api/art/album',
           {
             artist: album.artist,
             album: album.name

@@ -72,7 +72,7 @@ songist.factory('Artists', ['Db', function(Db) {
 
         // don't wanna go into Angular's digest cycle, so not using $http
         $.get(
-          'http://songistplayer.com/api/art/artist',
+          'http://pulptunes.com/api/art/artist',
           {
             name: artist.name
           }
