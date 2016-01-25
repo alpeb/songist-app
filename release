@@ -3,7 +3,7 @@
 rm -rdf target
 rm target.zip
 
-rsync -av . target --exclude target --exclude release
+rsync -av . target --exclude target --exclude release --exclude .git --exclude .gitignore
 
 rm target/css/bootstrap.css
 rm target/css/font-awesome.css
